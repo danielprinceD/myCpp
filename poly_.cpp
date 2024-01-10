@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-    cout<<"HELLO WORLD"<<endl;
+    cout<<"HELLO WORLD \n"<<endl;
     int deg,x_val,sumVal=0;
     cout<<"Enter the degree of coefficient : ";
     cin>>deg;
