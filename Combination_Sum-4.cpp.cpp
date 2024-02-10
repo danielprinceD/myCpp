@@ -12,6 +12,7 @@ public:
 
         for (int i = 0; i < nums.size() && target >= nums[i]; i++)
             dp[target] += helper(nums, target - nums[i], dp);
+
         return dp[target];
     }
     int combinationSum4(vector<int> &nums, int target)
