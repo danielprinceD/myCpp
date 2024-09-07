@@ -13,14 +13,15 @@ void get_binary(int n , vector<int> &bin)
                 val = val * 10 + 1;
             else val = val * 10;
         }
+        if(val != 0)
         bin.push_back(val);
     }
 }
 
 void allPossible(int n , vector<int> &bin , vector<int> &ds , vector<int> &ans)
 {
-    if(n < 0 || ds.size() > ans.size())return;
-    if(n == 0)
+    if(n < 0 || ds.size() >= ans.size())return;
+    if(n == 0 && ds.size() < ans.size())
     {
         ans = ds;
         return;
@@ -31,6 +32,7 @@ void allPossible(int n , vector<int> &bin , vector<int> &ds , vector<int> &ans)
         allPossible(n - i , bin , ds , ans);
         ds.pop_back();
     }
+    return;
 }
 
 void binary_decimal(int n)
@@ -45,6 +47,6 @@ void binary_decimal(int n)
 
 int main()
 {
-    int n = 400;
+    int n = 409;
     binary_decimal(n);
 }
