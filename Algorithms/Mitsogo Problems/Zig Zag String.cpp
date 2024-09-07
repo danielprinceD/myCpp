@@ -1,31 +1,46 @@
 #include <bits/stdc++.h>
 using namespace std;
-
-void zigzag_string(string &str)
+int k = 0;
+void zig_zag(string &str , int n)
 {
-    int i = 0 , n = str.size();
-    while(i < n)
+    int k = 0; int size = str.size();
+    while(k < n)
     {
-        cout<<str[i];
-        i+=4;
-    }
-    i = 1;
-    while(i < n)
-    {
-        cout<<str[i];
-        i+=2;
-    }
-    i = 2;
-    while(i < n)
-    {
-        cout<<str[i];
-        i+=4;
+        int i = k;
+        if(k == 0 || k == n-1)
+        {
+            while(i < size)
+            {
+                cout<<str[i];
+                i+=2*(n-1);
+            }
+        }
+        else{
+            int is_rev = true;
+            
+            while(i < size)
+            {
+                if(is_rev)
+                {
+                    cout<<str[i];
+                    i+=2 * (n-k-1);
+                }
+                else 
+                {
+                    cout<<str[i];
+                    i+=2 * (k);
+                }
+                is_rev = !is_rev;
+            }
+            
+        }
+        k++;
     }
 }
 
 int main()
 {
-    string str = "abcdefghijklmnop";
-    zigzag_string(str);
-    return 0;
+    int k = 0;
+    string str = "abcdefghijklmnopqrstuvwxyz";
+    zig_zag(str , 3);
 }
